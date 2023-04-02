@@ -74,3 +74,54 @@ print("Square Of ",num," : ",sqr_ans)
 print("Cube Of ",num," : ",cube_ans)  
 
 # How to create optional arguments in python
+def multiply(a, b=3):
+    result = a*b
+    return result
+
+num1 = 5
+num2 = 10
+print(multiply(num1,num2))
+print(multiply(num1))
+print(multiply(num2))
+
+
+# What if we reverse this part
+# def multiply(a=3, b): --> SyntaxError : Non-default argument follows default argument
+#     result = a*b
+#     return result
+
+# What if we have more than 2 
+def multiply(a, b=3, c=10):
+    result = a*b*c
+    return result
+num1 = 5
+num2 = 10
+num3 = 2
+print(multiply(num1,num2,num3))
+print(multiply(num1,num2))
+print(multiply(num2,num3))
+print(multiply(num3))
+
+#Non-key value arguments
+def example_nonkeyed_arg( *argv ):
+    for param in argv:
+        print(param)
+    return
+example_nonkeyed_arg("Hello","Welcome","To","iNeuron !!!")
+
+#Key Value Arguments kwargs
+def example_of_kwargs( **kwargs ):
+    # Using to print the values
+    for k,v in kwargs.items(): # -- kwargs.items() returns a list key, values pair
+        print("Key is ",k," and Value is ",v)
+    
+    # or it can be done in the following way
+    print("Value Of Host : ",kwargs['host'])
+    print("Value Of Port : ",kwargs["port"])
+    print("Value Of Password : ",kwargs["pwd"])
+
+    return
+
+example_of_kwargs(host='192.101.168.18.1',port=8080,pwd='1947AHMAD')
+
+example_of_kwargs(port=8080,pwd='1947AHMAD',host='192.101.168.18.1')
